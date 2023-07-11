@@ -1,0 +1,406 @@
+/* General Reset */
+
+/* https://piccalil.li/blog/a-modern-css-reset */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/* Set core body defaults */
+body {
+  --webkit-font-smoothing: antialiased;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+h1, h2, h3, h4, h5, h6 {
+   line-height: 1;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* End General Reset */
+
+/* General Settings */
+
+@font-face {
+  /* Example */ 
+  font-family: Hanken;
+
+  src:  url('assets/fonts/HankenGrotesk-VariableFont_wght.ttf'),
+        url('assets/fonts/static/HankenGrotesk-Medium.ttf');
+}
+
+:root {
+  /* Colors */
+  --neutral-1: hsl(217, 19%, 35%);
+  --neutral-2: hsl(214, 17%, 51%);
+  --neutral-3: hsl(212, 23%, 69%);
+  --neutral-4: hsl(210, 46%, 95%);
+  --neutral-5: hsl(0, 0%, 100%);
+
+  /* Fonts Family */
+  --ff-body: 'Manrope', sans-serif;
+
+  /* Fonts Weight */
+  --fw-regular: 500;
+  --fw-bold: 700;
+
+  /* Font Size */
+  --fs-body: 0.813rem;
+}
+/* End General Settings */
+
+/* General Styling */
+
+body {
+  background: var(--neutral-4);
+  font-family: var(--ff-body);
+  font-weight: var(--fw-regular);
+  color: var(--neutral-2);
+  font-size: var(--fs-body);
+}
+/* End General Styling */
+
+/* For this project only */
+
+main {
+  display: grid;
+  place-content: center;
+}
+
+section {
+  padding: 4.5rem 1.5rem;
+}
+
+/* End */
+
+/* Start Utilities */
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+}
+
+.show {
+  display: ;
+}
+
+.hide {
+  display: none;
+}
+
+/* End Utilities */
+
+/* Section Style */
+
+.container{
+  max-width: 375px;
+  padding: 0 ;
+  border: none;
+  border-radius: 0.75rem;
+  background: var(--neutral-5);
+  box-shadow: 0px 0px 60px 5px rgba(0, 0, 0, 0.15);
+}
+
+.img-div {
+  height: 200px;
+  overflow: hidden;
+  border-radius: 0.75rem 0.75rem 0 0;
+}
+
+.main-img {
+  margin-top: -0.80rem;
+}
+
+.content-div {
+  gap: 0.80rem;
+}
+
+.title, .p-text {
+  padding: 0 2.2rem;
+
+}
+
+.title {
+  color: var(--neutral-1);
+  font-weight: var(--fw-bold);
+  font-size: 1rem;
+  line-height: 1.4;
+  padding-top: 1.2rem;
+}
+
+.author-card-content, .mobile-card {
+  padding: 1rem 2.2rem 1.25rem;
+}
+
+.mobile-card {
+  border-radius: 0 0 0.75rem 0.75rem;
+  opacity: 0;
+  animation: entrance 0.25s ease-in forwards;
+}
+
+.author-card-content, .mobile-card, .desktop-modal {
+  justify-content: space-between;
+}
+
+.author-data-container {
+  gap: 1rem;
+}
+
+.author-card-content {
+  position: relative;
+}
+
+.avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+}
+
+.author-name a {
+  text-decoration: none;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.25px;
+  color: var(--neutral-1);
+}
+
+.author-date {
+  color: var(--neutral-3);
+}
+
+.share-btn-desktop, .share-btn-mobile,
+.close-btn-desktop, .close-btn-mobile {
+  width: 35px;
+  height: 35px;
+  background: var(--neutral-4);
+  border: none;
+  border-radius: 50%;
+  padding-top: 4px;
+  cursor: pointer;
+}
+
+.share-btn-desktop {
+  display: none;
+}
+
+.share-btn-desktop, .share-btn-mobile {
+  background: var(--neutral-4);
+}
+
+.share-btn-mobile::before ,
+.share-btn-desktop::before {
+  content: url('images/icon-share.svg');
+  width: 15px;
+  height: 13;
+}
+
+.share-btn-desktop:hover {
+  background: var(--neutral-3);
+}
+
+.share-btn-desktop:hover::before {
+  content: url('images/icon-share-active.svg');
+  width: 15px;
+  height: 13;
+}
+
+.share-btn-desktop:active {
+  background: var(--neutral-3);
+}
+
+.share-btn-desktop:active::before {
+  content: url('images/icon-share-active.svg');
+  width: 15px;
+  height: 13;
+}
+
+.desktop-modal, .mobile-card {
+  background: var(--neutral-1);
+}
+
+.close-btn-desktop, .close-btn-mobile {
+  background: var(--neutral-2);
+}
+
+.close-btn-desktop::before ,
+.close-btn-mobile::before {
+  content: url('images/icon-share-active.svg');
+  width: 15px;
+  height: 13; 
+}
+
+.share-title {
+  color: var(--neutral-3);
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+.share-content, .socials {
+  gap: 1rem;
+}
+
+.desktop-modal {
+  width: 250px;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.75rem;
+  margin: auto;
+  position: absolute;
+  top: -70px;
+  left: 242px;
+  z-index: 10;
+  box-shadow: 2px 2px 20px 2px rgba(0, 0, 0, 0.2);
+  animation: entrance 0.25s ease-in forwards;
+}
+
+.dialog-divisor {
+  width: 20px;
+  height: 20px;
+  background: var(--neutral-1);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 40px;
+  left: 115px;
+}
+
+.attribution {
+  text-align: center;
+}
+/* End Section Style */
+
+/* Animations */
+@keyframes entrance {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Animations Ends */
+
+/* Mediaqueryes */
+@media screen and (min-width: 700px) {
+  body {
+  /* For this project only */
+    display: grid;
+    place-content: center;
+  }
+
+  .container {
+    max-width: 700px;
+    height: auto;
+    grid-template-columns: repeat(2, 40% 60%);
+    gap: 0;
+  }
+
+  .img-div {
+    height: auto;
+    overflow: hidden;
+    border-radius: 0.75rem 0 0 0.75rem;
+  }
+
+  .main-img {
+    margin-top: auto;
+    margin-left: 30px;
+    width: auto;
+    height: 225px;
+    object-fit: contain;
+    scale: 1.3;
+  }
+
+  .title {
+    font-size: 1.15rem;
+    padding-right: 3rem;
+  }
+
+  .active {
+    background: var(--neutral-2);
+  }
+
+  .active::before {
+    content: url('images/icon-share-active.svg');
+    width: 15px;
+    height: 13;
+  }
+
+  .share-btn-desktop {
+    display: inline-block;
+  }
+
+  .share-btn-mobile {
+    display: none;
+  }
+
+  .social-link:hover {
+    transform: translateY(-1.5px);
+    transition: 0.25s ease;
+  }
+}
